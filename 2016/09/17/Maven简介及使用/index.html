@@ -5,16 +5,18 @@
     
     <title>Maven简介及使用 | Hawkingfoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
+    <meta name="description" content="Maven是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven简介及使用">
 <meta property="og:url" content="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/index.html">
 <meta property="og:site_name" content="Hawkingfoo">
-<meta property="og:description" content="Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
-<meta property="og:updated_time" content="2016-09-17T13:52:37.432Z">
+<meta property="og:description" content="Maven是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
+<meta property="og:image" content="http://odmqbc16k.bkt.clouddn.com/maven-logo.png">
+<meta property="og:updated_time" content="2016-09-17T14:26:16.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven简介及使用">
-<meta name="twitter:description" content="Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
+<meta name="twitter:description" content="Maven是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
+<meta name="twitter:image" content="http://odmqbc16k.bkt.clouddn.com/maven-logo.png">
     
 
     
@@ -231,10 +233,15 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/工具/">工具</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/工具/">工具</a>
+        <a class="tag-link" href="/tags/maven/">maven</a>
     </div>
 
                     </div>
@@ -245,7 +252,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。</p>
+            <p><img src="http://odmqbc16k.bkt.clouddn.com/maven-logo.png" alt=""></p>
+<p><strong>Maven</strong>是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。</p>
 <a id="more"></a>
 <h2 id="Maven结构"><a href="#Maven结构" class="headerlink" title="Maven结构"></a>Maven结构</h2><p>它要求在没有定制之前，所有的项目都有如下的结构：</p>
 <table>
@@ -287,9 +295,27 @@
 <p>我们选择默认的maven-archetype-quickstart，是编号<em>#106</em>。<br>正是我们需要的 Hello World 代码。所以我们可以构建和运行这个程序了。用下面简单的命令构建：</p>
 <p><code>$cd helloworld</code><br><code>$mvn package</code></p>
 <ul>
-<li><a href="http://www.cnblogs.com/wql025/p/5215570.html" title="创建Maven项目" target="_blank" rel="external">使用<code>Intelij Idea</code>创建Maven项目</a></li>
+<li><a href="http://www.cnblogs.com/wql025/p/5215570.html" title="创建Maven项目" target="_blank" rel="external">使用<code>IntelliJ Idea</code>创建Maven项目</a></li>
 </ul>
-<h2 id="常见Maven命令"><a href="#常见Maven命令" class="headerlink" title="常见Maven命令"></a>常见Maven命令</h2><h2 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h2><h2 id="Maven打包插件"><a href="#Maven打包插件" class="headerlink" title="Maven打包插件"></a>Maven打包插件</h2>
+<h2 id="常见Maven命令"><a href="#常见Maven命令" class="headerlink" title="常见Maven命令"></a>常见Maven命令</h2><ul>
+<li>编译：<code>mvn compile</code></li>
+<li>打包：<code>mvn package</code></li>
+<li>安装：<code>mvn install</code></li>
+<li>复制依赖库：<code>mvn dependency:copy-dependencies -DoutputDirectory=lib</code></li>
+<li>查看依赖树：<code>mvn dependency:tree</code></li>
+</ul>
+<h2 id="POM-简介"><a href="#POM-简介" class="headerlink" title="POM 简介"></a>POM 简介</h2><ul>
+<li><p><strong>POM (Project Object Model)</strong></p>
+<p>  一个项目所有的配置都放置在 <em>POM</em> 文件中：定义项目的类型、名字，管理依赖关系，定制插件的行为等。比如说，你可以配置compiler 插件让它使用 java 1.5 来编译。<br>  下面是一个具体的<font color="blue"><em>pom.xml</em></font>例子。</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span> </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.mycompany.helloworld<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>helloworld<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>helloworld<span class="tag">&lt;/<span class="name">name</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span> </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span> </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在 POM 中，groupId, artifactId, packaging, version 叫作 maven 坐标，它能唯一的确定一个项目。有了 maven坐标，我们就可以用它来指定我们的项目所依赖的其他项目，插件，或者父项目。一般 maven 坐标写成如下的格式：<br><code>groupId:artifactId:packaging:version</code></p>
+<h2 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h2><ul>
+<li>依赖</li>
+<li>排除依赖</li>
+</ul>
+<h2 id="Maven打包及插件"><a href="#Maven打包及插件" class="headerlink" title="Maven打包及插件"></a>Maven打包及插件</h2>
         
         </div>
         <footer class="article-footer">
@@ -299,7 +325,7 @@
 
 </div>
 
-    <a data-url="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/" data-id="cit77xbvf0000k0k21ep6f0x8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/" data-id="cit79mjd90004m0k2vhvs4ke5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -458,7 +484,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/工具/">工具</a></p>
                             <p class="item-title"><a href="/2016/09/17/Maven简介及使用/" class="title">Maven简介及使用</a></p>
                             <p class="item-date"><time datetime="2016-09-17T13:06:03.000Z" itemprop="datePublished">2016-09-17</time></p>
                         </div>
@@ -511,7 +537,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -529,7 +555,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -538,7 +564,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/工具/" style="font-size: 10px;">工具</a>
+            <a href="/tags/maven/" style="font-size: 10px;">maven</a>
         </div>
     </div>
 
