@@ -3,14 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档 | Hawkingfoo</title>
+    <title>Maven简介及使用 | Hawkingfoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hawkingfoo">
-<meta property="og:url" content="https://hawkingfoo.github.io/archives/index.html">
+    <meta name="description" content="Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven简介及使用">
+<meta property="og:url" content="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/index.html">
 <meta property="og:site_name" content="Hawkingfoo">
+<meta property="og:description" content="Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
+<meta property="og:updated_time" content="2016-09-17T13:52:37.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hawkingfoo">
+<meta name="twitter:title" content="Maven简介及使用">
+<meta name="twitter:description" content="Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。">
     
 
     
@@ -203,25 +207,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-Maven简介及使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/09/17/Maven简介及使用/">Maven简介及使用</a>
+        <h1 class="article-title" itemprop="name">
+            Maven简介及使用
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/09/17/Maven简介及使用/">
@@ -230,75 +230,211 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/工具/">工具</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/09/17/Hexo-test/">Hexo test</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/17/Hexo-test/">
-            <time datetime="2016-09-17T03:16:46.000Z" itemprop="datePublished">2016-09-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">hexo</a>
-    </div>
-
-                    
-                </div>
-            </div>
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Maven 是一个项目管理和构建自动化工具。但是对于我们程序员来说，我们最关心的是它的项目构建功能。Maven使用惯例优于配置的原则。</p>
+<a id="more"></a>
+<h2 id="Maven结构"><a href="#Maven结构" class="headerlink" title="Maven结构"></a>Maven结构</h2><p>它要求在没有定制之前，所有的项目都有如下的结构：</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>目的   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${basedir}</td>
+<td>存放 pom.xml和所有的子目录</td>
+</tr>
+<tr>
+<td>${basedir}/src/main/java</td>
+<td>项目的 java源代码</td>
+</tr>
+<tr>
+<td>${basedir}/src/main/resources</td>
+<td>项目的资源，比如说 property文件</td>
+</tr>
+<tr>
+<td>${basedir}/src/test/java</td>
+<td>项目的测试类，比如说 JUnit代码</td>
+</tr>
+<tr>
+<td>${basedir}/src/test/resources</td>
+<td>测试使用的资源</td>
+</tr>
+</tbody>
+</table>
+<p>一个maven项目在默认情况下会产生JAR文件，另外编译后的classes 会放在${basedir}/target/classes下面，JAR 文件会放在${basedir}/target下面。</p>
+<p>在这个目录下面，有一个Project Object Model(POM)文件<em> pom.xml</em>。这个文件用于描述项目，配置插件和管理依赖关系。</p>
+<h2 id="创建Maven项目"><a href="#创建Maven项目" class="headerlink" title="创建Maven项目"></a>创建Maven项目</h2><ul>
+<li>在命令行中执行下面的命令来建立我们的 hello world 项目。</li>
+</ul>
+<p><code>$mvn archetype:generate -DgroupId=com.mycompany.helloworld -DartifactId=helloworld -Dpackage=com.mycompany.helloworld -Dversion=1.0-SNAPSHOT</code></p>
+<p>我们选择默认的maven-archetype-quickstart，是编号<em>#106</em>。<br>正是我们需要的 Hello World 代码。所以我们可以构建和运行这个程序了。用下面简单的命令构建：</p>
+<p><code>$cd helloworld</code><br><code>$mvn package</code></p>
+<ul>
+<li><a href="http://www.cnblogs.com/wql025/p/5215570.html" title="创建Maven项目" target="_blank" rel="external">使用<code>Intelij Idea</code>创建Maven项目</a></li>
+</ul>
+<h2 id="常见Maven命令"><a href="#常见Maven命令" class="headerlink" title="常见Maven命令"></a>常见Maven命令</h2><h2 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h2><h2 id="Maven打包插件"><a href="#Maven打包插件" class="headerlink" title="Maven打包插件"></a>Maven打包插件</h2>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/09/16/hello-world/">Hello World</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/16/hello-world/">
-            <time datetime="2016-09-16T02:47:28.380Z" itemprop="datePublished">2016-09-16</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
+
 </div>
+
+    <a data-url="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/" data-id="cit77xbvf0000k0k21ep6f0x8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/09/17/Hexo-test/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Hexo test</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/09/17/Maven简介及使用/" data-title="Maven简介及使用" data-url="https://hawkingfoo.github.io/2016/09/17/Maven简介及使用/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
